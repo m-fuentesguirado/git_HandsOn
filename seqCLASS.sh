@@ -15,7 +15,7 @@ if [[ -n $1 && -n $2 ]]; then
   if [[ $seq =~ $motif ]]; then
     echo "Motif '$motif' found in the sequence!"
   else
-    echo "MOTIF NOT FOUND IN SEQUENCE"
+    echo "MOTIF NOT FOUND IN SEQUENCE!!!"
   fi
 else
   echo "No sequence or motif provided"
