@@ -12,4 +12,15 @@ if [[ $seq =~ ^[ACGTU]+$ ]]; then
 else
   echo "The sequence is not DNA nor RNA"
 fi
+# Adding motif search functionality
+motif=$2
+if [[ -n $motif ]]; then
+  if [[ $seq == *$motif* ]]; then
+    echo "Motif '$motif' found in the sequence"
+  else
+    echo "Motif '$motif' not found in the sequence"
+  fi
+else
+  echo "No motif provided to search for"
+fi
 
