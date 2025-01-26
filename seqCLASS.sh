@@ -30,6 +30,6 @@ if [[ -n $motif ]]; then
   if [[ $seq =~ $motif ]]; then
     echo "FOUND"
   else
-    echo "NOT FOUND"
+    echo "MOTIF NOT FOUND IN SEQUENCE"
   fi
 fi
