@@ -1,10 +1,10 @@
 #!/bin/bash
 seq=$1
 seq=$(echo $seq | tr a-z A-Z)  # Note we just added this line
-if [[ $seq =~ ^[ACGTU]+$ ]]; then
+if [[ $seq =~ ^[ACGTU]+$ ]]; then # if seq contains "T, it is DNA
   if [[ $seq =~ T ]]; then
     echo "The sequence is DNA"
-  elif [[ $seq =~ U ]]; then
+  elif [[ $seq =~ U ]]; then #IF SEQ CONTAINS U it;s RNA
     echo "The sequence is RNA"
   else
     echo "The sequence can be DNA or RNA"
