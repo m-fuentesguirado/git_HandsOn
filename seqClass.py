@@ -2,7 +2,7 @@
 
 import sys, re
 from argparse import ArgumentParser
-
+#This code parse CLI arguments
 parser = ArgumentParser(description = 'Classify a sequence as DNA or RNA')
 parser.add_argument("-s", "--seq", type = str, required = True, help = "Input sequence")
 parser.add_argument("-m", "--motif", type = str, required = False, help = "Motif")
@@ -11,8 +11,12 @@ if len(sys.argv) == 1:
     sys.exit(1)
 
 args = parser.parse_args()
+#This parts  converts input into uppercase
+args.seq = args.seq.upper()                 
 
-args.seq = args.seq.upper()                 # New line for case 
+#This functions helps to  filter the characters that are allowed and classify DNA/RNA
+
+
 if re.search('^[ACGTU]+$', args.seq):
     if re.search('T', args.seq) and re.search ('U', args.seq):
         print ('The sequence is neither DNA nor RNA')
