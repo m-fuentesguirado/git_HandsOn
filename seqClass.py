@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+ #!/usr/bin/env python
 
 import sys, re
 from argparse import ArgumentParser
@@ -18,7 +18,7 @@ args.seq = args.seq.upper()
 
 
 if re.search('^[ACGTU]+$', args.seq):
-    if re.search('T', args.seq) and re.search ('U', args.seq):
+    if re.search('T', args.seq) and re.search('U', args.seq):
         print ('The sequence is neither DNA nor RNA')
     elif re.search ('T', args.seq):
         print ('The sequence is DNA')
@@ -27,11 +27,11 @@ if re.search('^[ACGTU]+$', args.seq):
     else:
         print ('The sequence can be DNA or RNA')
 else:
-    print ('The sequence can be anything')
+    print ('The sequence is invalid')
 if args.motif:
     args.motif = args.motif.upper()
     print(f'Motif search enabled: looking for motif "{args.motif}" in sequence "{args.seq}"... ', end = '')
-    if re.search(args.motif, args.seq):
+    if re.search(re.escape(args.motif), args.seq):  #to interpret  otif as a regular expression and  avoid unwantd matches.
         print("MOTIF FOUND, KEEP WORKING")
     else:
         print("MOTIF NOT FOUND")
